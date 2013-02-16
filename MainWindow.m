@@ -36,7 +36,7 @@ static CGEventRef EventTap(CGEventTapProxy proxy, CGEventType type, CGEventRef e
         case kCGEventLeftMouseUp:
         case kCGEventLeftMouseDragged:;
             char ProcName[PROC_PIDPATHINFO_MAXSIZE];
-            if (!proc_name((pid_t)CGEventGetIntegerValueField(event, kCGEventTargetUnixProcessID), ProcName, sizeof(ProcName))) return nil;
+            if (!proc_name((pid_t)CGEventGetIntegerValueField(event, kCGEventTargetUnixProcessID), ProcName, sizeof(ProcName))) return event;
             
             NSString *Target = [NSString stringWithUTF8String: ProcName];
             
