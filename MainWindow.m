@@ -42,7 +42,7 @@ static CGEventRef EventTap(CGEventTapProxy proxy, CGEventType type, CGEventRef e
             
             if ([Target isEqualToString: @"Finder"])
             {
-                for (NSDictionary *Window in (NSArray*)CGWindowListCopyWindowInfo(kCGWindowListOptionIncludingWindow, CGEventGetIntegerValueField(event, kCGMouseEventWindowUnderMousePointer)))
+                for (NSDictionary *Window in [(NSArray*)CGWindowListCopyWindowInfo(kCGWindowListOptionIncludingWindow, CGEventGetIntegerValueField(event, kCGMouseEventWindowUnderMousePointer)) autorelease])
                 {
                     if ([[Window objectForKey: (NSString*)kCGWindowName] length] == 0)
                     {
