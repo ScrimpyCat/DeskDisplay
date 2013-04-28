@@ -107,7 +107,7 @@ static CGEventRef EventTap(CGEventTapProxy proxy, CGEventType type, CGEventRef e
         //CGEventMaskBit(kCGEventOtherMouseUp) |
         //CGEventMaskBit(kCGEventOtherMouseDragged) |
         0;
-        tap = CGEventTapCreate(kCGAnnotatedSessionEventTap, kCGTailAppendEventTap, kCGEventTapOptionDefault, Mask, EventTap, self);
+        tap = CGEventTapCreate(kCGAnnotatedSessionEventTap, kCGTailAppendEventTap, kCGEventTapOptionListenOnly, Mask, EventTap, self);
         source = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, tap, 0);
         CFRunLoopAddSource(CFRunLoopGetCurrent(), source, kCFRunLoopCommonModes);
     }
